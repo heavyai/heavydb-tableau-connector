@@ -1,2 +1,0 @@
-2020-02-29 13:21:48,973 [DEBUG] | Starting Tableau Connector Packaging Version 1.0.0
-2020-02-29 13:21:48,973 [DEBUG] | Validating /Users/alexb/Projects/omnisci-tableau-connector/omnisci_jdbc/manifest.xml
