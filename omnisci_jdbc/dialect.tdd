@@ -11,6 +11,9 @@
     <function group='date' name='NOW' return-type='datetime'>
       <formula>NOW()</formula>
     </function>
+    <function group='date' name='TODAY' return-type='datetime'>
+      <formula>CAST(NOW() AS DATE)</formula>
+    </function>
     <date-function name='DATEDIFF' return-type='int'>
       <formula>DATEDIFF(%1,%2,%3)</formula>
       <formula part='year'>DATEDIFF(&apos;year&apos;,%2,%3)</formula>
