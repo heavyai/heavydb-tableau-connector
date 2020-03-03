@@ -11,8 +11,28 @@
     <function group='date' name='NOW' return-type='datetime'>
       <formula>NOW()</formula>
     </function>
-    <function group='date' name='TODAY' return-type='datetime'>
+    <function group='date' name='TODAY' return-type='date'>
       <formula>CAST(NOW() AS DATE)</formula>
+    </function>
+    <function group='operator' name='+' return-type='date'>
+      <formula>DATEADD(&apos;day&apos;, %2, %1)</formula>
+      <argument type='date' />
+      <argument type='int' />
+    </function>
+    <function group='operator' name='-' return-type='date'>
+      <formula>DATEADD(&apos;day&apos;, -%2, %1)</formula>
+      <argument type='date' />
+      <argument type='int' />
+    </function>
+    <function group='operator' name='+' return-type='datetime'>
+      <formula>DATEADD(&apos;second&apos;, %2, %1)</formula>
+      <argument type='datetime' />
+      <argument type='int' />
+    </function>
+    <function group='operator' name='-' return-type='datetime'>
+      <formula>DATEADD(&apos;second&apos;, -%2, %1)</formula>
+      <argument type='datetime' />
+      <argument type='int' />
     </function>
     <date-function name='DATEDIFF' return-type='int'>
       <formula>DATEDIFF(%1,%2,%3)</formula>
