@@ -17,15 +17,16 @@
       <customization name="CAP_QUERY_GROUP_BY_BOOL" value="yes"/>
       <customization name="CAP_QUERY_GROUP_BY_DEGREE" value="yes"/>
       <customization name="CAP_QUERY_SORT_BY" value="yes"/>
+      <customization name="CAP_QUERY_SORT_BY_NON_NUMERIC" value="no"/>
       <customization name="CAP_QUERY_SUBQUERIES" value="yes"/>
       <customization name="CAP_QUERY_TOP_N" value="yes"/>
-      <customization name="CAP_QUERY_TOP_SAMPLE" value="yes"/>
-      <customization name="CAP_QUERY_TOP_SAMPLE_PERCENT" value="yes"/>
+      <customization name="CAP_QUERY_TOP_SAMPLE" value="no"/>
+      <customization name="CAP_QUERY_TOP_SAMPLE_PERCENT" value="no"/>
       <customization name="CAP_QUERY_WHERE_FALSE_METADATA" value="yes"/>
       <customization name="CAP_QUERY_SUBQUERIES_WITH_TOP" value="yes"/>
       <customization name="CAP_SUPPORTS_SPLIT_FROM_LEFT" value="yes"/>
       <customization name="CAP_SUPPORTS_SPLIT_FROM_RIGHT" value="yes"/>
-      <customization name="CAP_SUPPORTS_UNION" value="yes"/>
+      <customization name="CAP_SUPPORTS_UNION" value="no"/>
       <customization name="CAP_QUERY_ALLOW_PARTIAL_AGGREGATION" value="no"/>
       <customization name="CAP_QUERY_TIME_REQUIRES_CAST" value="yes"/>
     </customizations>
