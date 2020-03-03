@@ -8,6 +8,73 @@
       <formula>CAST(((EXTRACT(EPOCH FROM %1) / ( 60 * 60 * 24)) + (365 * 70 + 17)) AS BIGINT)</formula>
       <argument type='date' />
     </function>
+    <function group='date' name='NOW' return-type='datetime'>
+      <formula>NOW()</formula>
+    </function>
+    <date-function name='DATEDIFF' return-type='int'>
+      <formula>DATEDIFF(%1,%2,%3)</formula>
+      <formula part='year'>DATEDIFF(&apos;year&apos;,%2,%3)</formula>
+      <formula part='quarter'>DATEDIFF(&apos;quarter&apos;,%2,%3)</formula>
+      <formula part='month'>DATEDIFF(&apos;month&apos;,%2,%3)</formula>
+      <formula part='dayofyear'>DATEDIFF(&apos;dayofyear&apos;,%2,%3)</formula>
+      <formula part='day'>DATEDIFF(&apos;day&apos;,%2,%3)</formula>
+      <formula part='weekday'>DATEDIFF(&apos;weekday&apos;,%2,%3)</formula>
+      <formula part='week'>DATEDIFF(&apos;week&apos;,%2,%3)</formula>
+      <formula part='hour'>DATEDIFF(&apos;hour&apos;,%2,%3)</formula>
+      <formula part='minute'>DATEDIFF(&apos;minute&apos;,%2,%3)</formula>
+      <formula part='second'>DATEDIFF(&apos;second&apos;,%2,%3)</formula>
+      <argument type='localstr' />
+      <argument type='datetime' />
+      <argument type='datetime' />
+    </date-function>
+    <date-function name='DATEDIFF' return-type='int'>
+      <formula>DATEDIFF(%1,%2,%3)</formula>
+      <formula part='year'>DATEDIFF(&apos;year&apos;,%2,%3)</formula>
+      <formula part='quarter'>DATEDIFF(&apos;quarter&apos;,%2,%3)</formula>
+      <formula part='month'>DATEDIFF(&apos;month&apos;,%2,%3)</formula>
+      <formula part='dayofyear'>DATEDIFF(&apos;dayofyear&apos;,%2,%3)</formula>
+      <formula part='day'>DATEDIFF(&apos;day&apos;,%2,%3)</formula>
+      <formula part='weekday'>DATEDIFF(&apos;weekday&apos;,%2,%3)</formula>
+      <formula part='week'>DATEDIFF(&apos;week&apos;,%2,%3)</formula>
+      <formula part='hour'>DATEDIFF(&apos;hour&apos;,%2,%3)</formula>
+      <formula part='minute'>DATEDIFF(&apos;minute&apos;,%2,%3)</formula>
+      <formula part='second'>DATEDIFF(&apos;second&apos;,%2,%3)</formula>
+      <argument type='localstr' />
+      <argument type='datetime' />
+      <argument type='date' />
+    </date-function>
+    <date-function name='DATEDIFF' return-type='int'>
+      <formula>DATEDIFF(%1,%2,%3)</formula>
+      <formula part='year'>DATEDIFF(&apos;year&apos;,%2,%3)</formula>
+      <formula part='quarter'>DATEDIFF(&apos;quarter&apos;,%2,%3)</formula>
+      <formula part='month'>DATEDIFF(&apos;month&apos;,%2,%3)</formula>
+      <formula part='dayofyear'>DATEDIFF(&apos;dayofyear&apos;,%2,%3)</formula>
+      <formula part='day'>DATEDIFF(&apos;day&apos;,%2,%3)</formula>
+      <formula part='weekday'>DATEDIFF(&apos;weekday&apos;,%2,%3)</formula>
+      <formula part='week'>DATEDIFF(&apos;week&apos;,%2,%3)</formula>
+      <formula part='hour'>DATEDIFF(&apos;hour&apos;,%2,%3)</formula>
+      <formula part='minute'>DATEDIFF(&apos;minute&apos;,%2,%3)</formula>
+      <formula part='second'>DATEDIFF(&apos;second&apos;,%2,%3)</formula>
+      <argument type='localstr' />
+      <argument type='date' />
+      <argument type='datetime' />
+    </date-function>
+    <date-function name='DATEDIFF' return-type='int'>
+      <formula>DATEDIFF(%1,%2,%3)</formula>
+      <formula part='year'>DATEDIFF(&apos;year&apos;,%2,%3)</formula>
+      <formula part='quarter'>DATEDIFF(&apos;quarter&apos;,%2,%3)</formula>
+      <formula part='month'>DATEDIFF(&apos;month&apos;,%2,%3)</formula>
+      <formula part='dayofyear'>DATEDIFF(&apos;dayofyear&apos;,%2,%3)</formula>
+      <formula part='day'>DATEDIFF(&apos;day&apos;,%2,%3)</formula>
+      <formula part='weekday'>DATEDIFF(&apos;weekday&apos;,%2,%3)</formula>
+      <formula part='week'>DATEDIFF(&apos;week&apos;,%2,%3)</formula>
+      <formula part='hour'>DATEDIFF(&apos;hour&apos;,%2,%3)</formula>
+      <formula part='minute'>DATEDIFF(&apos;minute&apos;,%2,%3)</formula>
+      <formula part='second'>DATEDIFF(&apos;second&apos;,%2,%3)</formula>
+      <argument type='localstr' />
+      <argument type='date' />
+      <argument type='datetime' />
+    </date-function>
     <date-function name='DATEPART' return-type='int'>
       <formula>EXTRACT( %1 FROM %2 )</formula>
       <formula part='year'>EXTRACT( YEAR FROM %2 )</formula>
