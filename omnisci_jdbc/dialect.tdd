@@ -1,12 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
 <dialect name='OmniSci'
          class='omnisci_jdbc'
-         base='PostgreSQL90Dialect'
+         base='DefaultSQLDialect'
          version='18.1'>
    <function-map>
     <function name='FLOAT' group='cast' return-type='real'>
       <formula>CAST(((EXTRACT(EPOCH FROM %1) / ( 60 * 60 * 24)) + (365 * 70 + 17)) AS BIGINT)</formula>
       <argument type='date' />
     </function>
+    <date-function name='DATEPART' return-type='int'>
+      <formula>EXTRACT( %1 FROM %2 )</formula>
+      <formula part='year'>EXTRACT( YEAR FROM %2 )</formula>
+      <formula part='quarter'>EXTRACT( QUARTER FROM %2 )</formula>
+      <formula part='month'>EXTRACT( MONTH FROM %2 )</formula>
+      <formula part='dayofyear'>EXTRACT( DOY FROM %2 )</formula>
+      <formula part='day'>EXTRACT( DAY FROM %2 )</formula>
+      <formula part='weekday'>EXTRACT( DOW FROM %2 )</formula>
+      <formula part='week'>EXTRACT( WEEK FROM %2 )</formula>
+      <formula part='hour'>EXTRACT( HOUR FROM %2 )</formula>
+      <formula part='minute'>EXTRACT( MINUTE FROM %2 )</formula>
+      <formula part='second'>EXTRACT( SECOND FROM %2 )</formula>
+      <argument type='localstr' />
+      <argument type='datetime' />
+    </date-function>
+    <date-function name='DATEPART' return-type='int'>
+      <formula>EXTRACT( %1 FROM %2 )</formula>
+      <formula part='year'>EXTRACT( YEAR FROM %2 )</formula>
+      <formula part='quarter'>EXTRACT( QUARTER FROM %2 )</formula>
+      <formula part='month'>EXTRACT( MONTH FROM %2 )</formula>
+      <formula part='dayofyear'>EXTRACT( DOY FROM %2 )</formula>
+      <formula part='day'>EXTRACT( DAY FROM %2 )</formula>
+      <formula part='weekday'>EXTRACT( DOW FROM %2 )</formula>
+      <formula part='week'>EXTRACT( WEEK FROM %2 )</formula>
+      <formula part='hour'>EXTRACT( HOUR FROM %2 )</formula>
+      <formula part='minute'>EXTRACT( MINUTE FROM %2 )</formula>
+      <formula part='second'>EXTRACT( SECOND FROM %2 )</formula>
+      <argument type='localstr' />
+      <argument type='date' />
+    </date-function>
+    <date-function name='DATETRUNC' return-type='datetime'>
+      <formula>DATE_TRUNC( %1, %2 )</formula>
+      <formula part='year'>DATE_TRUNC( YEAR, %2 )</formula>
+      <formula part='quarter'>DATE_TRUNC( QUARTER, %2 )</formula>
+      <formula part='month'>DATE_TRUNC( MONTH, %2 )</formula>
+      <formula part='dayofyear'>DATE_TRUNC( DAY, %2 )</formula>
+      <formula part='day'>DATE_TRUNC( DAY, %2 )</formula>
+      <formula part='weekday'>DATE_TRUNC( DAY, %2 )</formula>
+      <formula part='week'>DATE_TRUNC( WEEK, %2 )</formula>
+      <formula part='hour'>DATE_TRUNC( HOUR, %2 )</formula>
+      <formula part='minute'>DATE_TRUNC( MINUTE, %2 )</formula>
+      <formula part='second'>DATE_TRUNC( SECOND, %2 )</formula>
+      <argument type='localstr' />
+      <argument type='datetime' />
+    </date-function>
+    <date-function name='DATETRUNC' return-type='datetime'>
+      <formula>DATE_TRUNC( %1, %2 )</formula>
+      <formula part='year'>DATE_TRUNC( YEAR, %2 )</formula>
+      <formula part='quarter'>DATE_TRUNC( QUARTER, %2 )</formula>
+      <formula part='month'>DATE_TRUNC( MONTH, %2 )</formula>
+      <formula part='dayofyear'>DATE_TRUNC( DAY, %2 )</formula>
+      <formula part='day'>DATE_TRUNC( DAY, %2 )</formula>
+      <formula part='weekday'>DATE_TRUNC( DAY, %2 )</formula>
+      <formula part='week'>DATE_TRUNC( WEEK, %2 )</formula>
+      <formula part='hour'>DATE_TRUNC( HOUR, %2 )</formula>
+      <formula part='minute'>DATE_TRUNC( MINUTE, %2 )</formula>
+      <formula part='second'>DATE_TRUNC( SECOND, %2 )</formula>
+      <argument type='localstr' />
+      <argument type='date' />
+    </date-function>
    </function-map>
 </dialect>
