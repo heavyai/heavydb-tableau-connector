@@ -11,6 +11,7 @@ Copy the `.jar` file to `~/Library/Tableau/Drivers`:
 ```
 cp omnisci-jdbc-5.2.0-SNAPSHOT.jar ~/Library/Tableau/Drivers
 ```
+
 (from the `bin` directory of your OmniSci package)
 
 ### Running in the Development Environment
@@ -20,4 +21,44 @@ The OmniSci Tableau Connector can be run in a development environment by pointin
 ```
 /Applications/Tableau\ Desktop\ 2020.1.app/Contents/MacOS/Tableau -DConnectPluginsPath=/Users/alexb/Projects/omnisci-tableau-connector/
 ```
+
 (assuming you cloned this repo into a `Projects` directory in your home folder)
+
+### Packaging and Signing
+
+Acquire the keystore with the company codesigning cert from @andrewseidl .
+
+Clone and setup https://github.com/tableau/connector-plugin-sdk
+
+```
+git clone https://github.com/tableau/connector-plugin-sdk
+cd connector-plugin-sdk
+python -m venv venv
+source venv/bin/activate
+python setup.py install
+```
+
+Generate and sign the taco
+
+```
+cd connector_packager
+python -m connector_packager.package /path/to/omnisci-tableau-connector/omnisci_jdbc -a 'omnisci, inc.’s sectigo limited id' -ks ~/.keystore
+```
+
+By default the taco will be placed at `packaged-connector/omnisci_jdbc.taco`
+
+Re-sign the taco, but with timestamping enabled (this won't be necessary once https://github.com/tableau/connector-plugin-sdk/issues/396 is resolved). Timestamping allows the taco to be used past our certificate expiration date.
+
+```
+jarsigner -keystore ~/.keystore -tsa http://timestamp.comodoca.com packaged-connector/omnisci_jdbc.taco 'omnisci, inc.’s sectigo limited id'
+```
+
+### Using the signed package
+
+Install Tableau.
+
+Install a Java distribution, current recommended by Tableau is Java 8 from https://adoptopenjdk.net/ .
+
+Acquire `omnisci-jdbc-x.y.z.jar` from the `bin` directory of an OmniSci distribution and place it in the Tableau Drivers dir. On macOS this is under `~/Library/Tableau/Drivers`, on Windows it is `c:\Program Files\Tableau\Drivers`.
+
+Copy the generated `omnisci_jdbc.taco` to the Tableau Repository Connectors dir. On macOS this is under `~/Documents/My Tableau Repository/Connectors`, on Windows it is `%HOMEPATH%\Documents\My Tableau Repository\Connectors`.
