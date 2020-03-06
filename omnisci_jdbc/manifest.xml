@@ -19,7 +19,7 @@
       <customization name="CAP_QUERY_SORT_BY" value="yes"/>
       <customization name="CAP_QUERY_SORT_BY_NON_NUMERIC" value="no"/>
       <customization name="CAP_QUERY_SUBQUERIES" value="yes"/>
-      <customization name="CAP_QUERY_TOP_N" value="yes"/>
+      <customization name="CAP_QUERY_TOP_N" value="no"/>
       <customization name="CAP_QUERY_TOP_SAMPLE" value="no"/>
       <customization name="CAP_QUERY_TOP_SAMPLE_PERCENT" value="no"/>
       <customization name="CAP_QUERY_WHERE_FALSE_METADATA" value="yes"/>
