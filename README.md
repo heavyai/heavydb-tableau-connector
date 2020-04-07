@@ -32,7 +32,7 @@ Clone and setup https://github.com/tableau/connector-plugin-sdk
 
 ```
 git clone https://github.com/tableau/connector-plugin-sdk
-cd connector-plugin-sdk
+cd connector-plugin-sdk/connector-packager
 python -m venv venv
 source venv/bin/activate
 python setup.py install
