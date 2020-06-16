@@ -188,5 +188,50 @@
       <argument type='localstr' />
       <argument type='date' />
     </date-function>
+    <function group='logical' name='IFNULL' return-type='bool'>
+      <formula>(CASE WHEN %1 THEN 1 WHEN NOT %1 THEN 0 ELSE (CASE WHEN %2 THEN 1 WHEN NOT %2 THEN 0 ELSE NULL END) END)=1</formula>
+      <argument type='bool' />
+      <argument type='bool' />
+    </function>
+    <function group='logical' name='IFNULL' return-type='real'>
+      <formula>{fn IFNULL(%1, %2)}</formula>
+      <argument type='real' />
+      <argument type='real' />
+    </function>
+    <function group='logical' name='IFNULL' return-type='int'>
+      <formula>ISNULL(%1, %2)</formula>
+      <argument type='int' />
+      <argument type='int' />
+    </function>
+    <function group='logical' name='IFNULL' return-type='str'>
+      <formula>ISNULL(%1, %2)</formula>
+      <argument type='str' />
+      <argument type='str' />
+    </function>
+    <function group='logical' name='IFNULL' return-type='datetime'>
+      <formula>COALESCE(%1, %2)</formula>
+      <argument type='datetime' />
+      <argument type='datetime' />
+    </function>
+    <function group='logical' name='IFNULL' return-type='datetime'>
+      <formula>COALESCE(%1, CAST(%2 AS TIMESTAMP))</formula>
+      <argument type='datetime' />
+      <argument type='date' />
+    </function>
+    <function group='logical' name='IFNULL' return-type='datetime'>
+      <formula>COALESCE(CAST(%1 AS TIMESTAMP), %2)</formula>
+      <argument type='date' />
+      <argument type='datetime' />
+    </function>
+    <function group='logical' name='IFNULL' return-type='date'>
+      <formula>IIF(IsEmpty(%1), %2, %1)</formula>
+      <argument type='date' />
+      <argument type='date' />
+    </function>
+    <function group='logical' name='IFNULL' return-type='spatial'>
+      <formula>COALESCE(%1, %2)</formula>
+      <argument type='spatial' />
+      <argument type='spatial' />
+    </function>
    </function-map>
 </dialect>
