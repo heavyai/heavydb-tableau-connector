@@ -4,6 +4,72 @@
          base='DefaultSQLDialect'
          version='18.1'>
    <function-map>
+    <function group='aggregate' name='APPROX_COUNTD' return-type='int'>
+      <formula>APPROX_COUNT_DISTINCT(%1)</formula>
+      <unagg-formula>(CASE WHEN %1 THEN 1 WHEN NOT %1 THEN 1 ELSE 0 END)</unagg-formula>
+      <argument type='bool' />
+    </function>
+    <function group='aggregate' name='APPROX_COUNTD' return-type='int'>
+      <formula>APPROX_COUNT_DISTINCT(%1)</formula>
+      <unagg-formula>(CASE WHEN (%1 IS NULL) THEN 0 ELSE 1 END)</unagg-formula>
+      <argument type='real' />
+    </function>
+    <function group='aggregate' name='APPROX_COUNTD' return-type='int'>
+      <formula>APPROX_COUNT_DISTINCT(%1)</formula>
+      <unagg-formula>(CASE WHEN %1 IS NULL THEN 0 ELSE 1 END)</unagg-formula>
+      <argument type='int' />
+    </function>
+    <function group='aggregate' name='APPROX_COUNTD' return-type='int'>
+      <formula>APPROX_COUNT_DISTINCT(%1)</formula>
+      <unagg-formula>(CASE WHEN %1 IS NULL THEN 0 ELSE 1 END)</unagg-formula>
+      <argument type='str' />
+    </function>
+    <function group='aggregate' name='APPROX_COUNTD' return-type='int'>
+      <formula>APPROX_COUNT_DISTINCT(%1)</formula>
+      <unagg-formula>(CASE WHEN %1 IS NULL THEN 0 ELSE 1 END)</unagg-formula>
+      <argument type='datetime' />
+    </function>
+    <function group='aggregate' name='APPROX_COUNTD' return-type='int'>
+      <formula>APPROX_COUNT_DISTINCT(%1)</formula>
+      <unagg-formula>(CASE WHEN %1 IS NULL THEN 0 ELSE 1 END)</unagg-formula>
+      <argument type='date' />
+    </function>
+    <function group='aggregate' name='APPROX_COUNTD' return-type='int'>
+      <formula>APPROX_COUNT_DISTINCT(%1, %2)</formula>
+      <unagg-formula>(CASE WHEN %1 THEN 1 WHEN NOT %1 THEN 1 ELSE 0 END)</unagg-formula>
+      <argument type='bool' />
+      <argument type='int' />
+    </function>
+    <function group='aggregate' name='APPROX_COUNTD' return-type='int'>
+      <formula>APPROX_COUNT_DISTINCT(%1, %2)</formula>
+      <unagg-formula>(CASE WHEN (%1 IS NULL) THEN 0 ELSE 1 END)</unagg-formula>
+      <argument type='real' />
+      <argument type='int' />
+    </function>
+    <function group='aggregate' name='APPROX_COUNTD' return-type='int'>
+      <formula>APPROX_COUNT_DISTINCT(%1, %2)</formula>
+      <unagg-formula>(CASE WHEN %1 IS NULL THEN 0 ELSE 1 END)</unagg-formula>
+      <argument type='int' />
+      <argument type='int' />
+    </function>
+    <function group='aggregate' name='APPROX_COUNTD' return-type='int'>
+      <formula>APPROX_COUNT_DISTINCT(%1, %2)</formula>
+      <unagg-formula>(CASE WHEN %1 IS NULL THEN 0 ELSE 1 END)</unagg-formula>
+      <argument type='str' />
+      <argument type='int' />
+    </function>
+    <function group='aggregate' name='APPROX_COUNTD' return-type='int'>
+      <formula>APPROX_COUNT_DISTINCT(%1, %2)</formula>
+      <unagg-formula>(CASE WHEN %1 IS NULL THEN 0 ELSE 1 END)</unagg-formula>
+      <argument type='datetime' />
+      <argument type='int' />
+    </function>
+    <function group='aggregate' name='APPROX_COUNTD' return-type='int'>
+      <formula>APPROX_COUNT_DISTINCT(%1, %2)</formula>
+      <unagg-formula>(CASE WHEN %1 IS NULL THEN 0 ELSE 1 END)</unagg-formula>
+      <argument type='date' />
+      <argument type='int' />
+    </function>
     <function name='FLOAT' group='cast' return-type='real'>
       <formula>CAST(((EXTRACT(EPOCH FROM %1) / ( 60 * 60 * 24)) + (365 * 70 + 17)) AS BIGINT)</formula>
       <argument type='date' />
@@ -35,22 +101,22 @@
       <argument type='int' />
     </function>
     <function group='logical' name='IFNULL' return-type='bool'>
-      <formula>(CASE WHEN %1 THEN 1 WHEN NOT %1 THEN 0 ELSE (CASE WHEN %2 THEN 1 WHEN NOT %2 THEN 0 ELSE NULL END) END)=1</formula>
+      <formula>COALESCE(%1, %2)</formula>
       <argument type='bool' />
       <argument type='bool' />
     </function>
     <function group='logical' name='IFNULL' return-type='real'>
-      <formula>{fn IFNULL(%1, %2)}</formula>
+      <formula>COALESCE(%1, %2)</formula>
       <argument type='real' />
       <argument type='real' />
     </function>
     <function group='logical' name='IFNULL' return-type='int'>
-      <formula>ISNULL(%1, %2)</formula>
+      <formula>COALESCE(%1, %2)</formula>
       <argument type='int' />
       <argument type='int' />
     </function>
     <function group='logical' name='IFNULL' return-type='str'>
-      <formula>ISNULL(%1, %2)</formula>
+      <formula>COALESCE(%1, %2)</formula>
       <argument type='str' />
       <argument type='str' />
     </function>
@@ -70,13 +136,33 @@
       <argument type='datetime' />
     </function>
     <function group='logical' name='IFNULL' return-type='date'>
-      <formula>IIF(IsEmpty(%1), %2, %1)</formula>
+      <formula>COALESCE(%1, %2)</formula>
       <argument type='date' />
       <argument type='date' />
     </function>
     <function group='logical' name='IFNULL' return-type='spatial'>
       <formula>COALESCE(%1, %2)</formula>
       <argument type='spatial' />
+      <argument type='spatial' />
+    </function>
+    <function group='logical' name='ISNULL' return-type='bool'>
+      <formula>(%1 IS NULL)</formula>
+      <argument type='bool' />
+    </function>
+    <function group='logical' name='ISNULL' return-type='bool'>
+      <formula>(%1 IS NULL)</formula>
+      <argument type='real' />
+    </function>
+    <function group='logical' name='ISNULL' return-type='bool'>
+      <formula>(%1 IS NULL)</formula>
+      <argument type='str' />
+    </function>
+    <function group='logical' name='ISNULL' return-type='bool'>
+      <formula>(%1 IS NULL)</formula>
+      <argument type='datetime' />
+    </function>
+    <function group='logical' name='ISNULL' return-type='bool'>
+      <formula>(%1 IS NULL)</formula>
       <argument type='spatial' />
     </function>
     <date-function name='DATEADD' return-type='datetime'>
