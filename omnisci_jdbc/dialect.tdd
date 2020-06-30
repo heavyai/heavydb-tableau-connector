@@ -266,7 +266,7 @@
       <formula part='month'>EXTRACT( MONTH FROM %2 )</formula>
       <formula part='dayofyear'>EXTRACT( DOY FROM %2 )</formula>
       <formula part='day'>EXTRACT( DAY FROM %2 )</formula>
-      <formula part='weekday'>EXTRACT( DOW FROM %2 )</formula>
+      <formula part='weekday'>EXTRACT( DOW FROM %2 ) + 1</formula>
       <formula part='week'>EXTRACT( WEEK FROM %2 )</formula>
       <formula part='hour'>EXTRACT( HOUR FROM %2 )</formula>
       <formula part='minute'>EXTRACT( MINUTE FROM %2 )</formula>
@@ -281,7 +281,7 @@
       <formula part='month'>EXTRACT( MONTH FROM %2 )</formula>
       <formula part='dayofyear'>EXTRACT( DOY FROM %2 )</formula>
       <formula part='day'>EXTRACT( DAY FROM %2 )</formula>
-      <formula part='weekday'>EXTRACT( DOW FROM %2 )</formula>
+      <formula part='weekday'>EXTRACT( DOW FROM %2 ) + 1</formula>
       <formula part='week'>EXTRACT( WEEK FROM %2 )</formula>
       <formula part='hour'>EXTRACT( HOUR FROM %2 )</formula>
       <formula part='minute'>EXTRACT( MINUTE FROM %2 )</formula>
