@@ -4,6 +4,31 @@
          base='DefaultSQLDialect'
          version='18.1'>
    <function-map>
+     <function group='operator' name='-' return-type='date'>
+       <formula>DATEDIFF(&apos;day&apos;, %1, %2)</formula>
+       <argument type='date' />
+       <argument type='date' />
+     </function>
+     <function group='operator' name='-' return-type='datetime'>
+       <formula>TIMESTAMPDIFF(&apos;second&apos;, %1, %2)</formula>
+       <argument type='datetime' />
+       <argument type='datetime' />
+     </function>
+     <function group='operator' name='-' return-type='datetime'>
+       <formula>TIMESTAMPDIFF(&apos;second&apos;, %1, %2)</formula>
+       <argument type='date' />
+       <argument type='datetime' />
+     </function>
+     <function group='operator' name='-' return-type='datetime'>
+       <formula>TIMESTAMPDIFF(&apos;second&apos;, %1, %2)</formula>
+       <argument type='datetime' />
+       <argument type='date' />
+     </function>
+     <function group='string' name='CONTAINS' return-type='bool'>
+       <formula>%1 LIKE %2</formula>
+       <argument type='str' />
+       <argument type='str' />
+     </function>
     <function group='aggregate' name='APPROX_COUNTD' return-type='int'>
       <formula>APPROX_COUNT_DISTINCT(%1)</formula>
       <unagg-formula>(CASE WHEN %1 THEN 1 WHEN NOT %1 THEN 1 ELSE 0 END)</unagg-formula>
@@ -320,7 +345,7 @@
       <argument type='date' />
     </date-function>
    </function-map>
-   
+
    <sql-format>
     <supported-joins>
       <part name='Inner' />
