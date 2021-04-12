@@ -357,9 +357,25 @@
    </function-map>
 
    <sql-format>
+    <!--
+      format-select
+      Piece-by-piece formula for defining a SELECT statement
+    -->
+    <format-select>
+      <part name='Into' value='CREATE TABLE %1 AS (' />
+      <part name='Top' value='SELECT * FROM (' />
+      <part name='Select' value='SELECT %1' />
+      <part name='From' value='FROM %1' />
+      <part name='Where' value='WHERE %1' />
+      <part name='Group' value='GROUP BY %1' />
+      <part name='Having' value='HAVING %1' />
+      <part name='OrderBy' value='ORDER BY %1' />
+      <part name='Top' value=') LIMIT %1' />
+      <part name='Into' value=')' />
+    </format-select>
     <supported-joins>
       <part name='Inner' />
       <part name='Left' />
     </supported-joins>
-  </sql-format>
+   </sql-format>
 </dialect>
