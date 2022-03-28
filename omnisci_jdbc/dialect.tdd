@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<dialect name='OmniSci'
-         class='omnisci_jdbc'
+<dialect name='HEAVY.AI'
+         class='heavyai_jdbc'
          base='DefaultSQLDialect'
          version='18.1'>
    <function-map>

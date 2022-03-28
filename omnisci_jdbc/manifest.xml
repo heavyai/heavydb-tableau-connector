@@ -1,12 +1,12 @@
 <?xml version='1.0' encoding='utf-8' ?>
 
-<connector-plugin class='omnisci_jdbc' superclass='jdbc' plugin-version='0.0.0' name='OmniSci JDBC' version='5.1.0' min-version-tableau='2019.4'>
+<connector-plugin class='heavyai_jdbc' superclass='jdbc' plugin-version='0.0.0' name='HEAVY.AI JDBC' version='6.0.0' min-version-tableau='2019.4'>
   <vendor-information>
-      <company name="OmniSci"/>
-      <support-link url="https://www.omnisci.com"/>
-      <driver-download-link url="https://www.omnisci.com/platform/downloads"/>
+      <company name="HEAVY.AI"/>
+      <support-link url="https://www.heavy.ai"/>
+      <driver-download-link url="https://www.heavy.ai/platform/downloads"/>
   </vendor-information>
-  <connection-customization class="omnisci_jdbc" enabled="true" version="5.1.0">
+  <connection-customization class="heavyai_jdbc" enabled="true" version="6.0.0">
     <vendor name="vendor"/>
     <driver name="driver"/>
     <customizations>
