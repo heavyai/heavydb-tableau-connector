@@ -1,25 +1,27 @@
-# OmniSci Tableau Connector
+# HeavyDB Tableau Connector
 
 ### Prerequisites
 
-Install the OmniSci JDBC driver in Tableau. The JDBC driver is packaged with the OmniSci binaries in the `bin` directory of the OmniSci package. See [Installing JDBC Drivers in Tableau](https://help.tableau.com/current/pro/desktop/en-us/examples_otherdatabases_jdbc.htm) for full instructions.
+Install the HEAVY.AI JDBC driver in Tableau. The JDBC driver is packaged with the HEAVY.AI binaries in the `bin` directory of the HEAVY.AI package. See [Installing JDBC Drivers in Tableau](https://help.tableau.com/current/pro/desktop/en-us/examples_otherdatabases_jdbc.htm) for full instructions.
+
+(Below needs updating for new HEAVY.AI naming scheme)
 
 On MacOS:
 
 Copy the `.jar` file to `~/Library/Tableau/Drivers`:
 
 ```
-cp omnisci-jdbc-5.2.0-SNAPSHOT.jar ~/Library/Tableau/Drivers
+cp heavyai-jdbc-6.0.0-SNAPSHOT.jar ~/Library/Tableau/Drivers
 ```
 
-(from the `bin` directory of your OmniSci package)
+(from the `bin` directory of your HEAVY.AI package)
 
 ### Running in the Development Environment
 
-The OmniSci Tableau Connector can be run in a development environment by pointing the local Tableau installation directly to the top-level directory of this repository. On MacOS:
+The HeavyDB Tableau Connector can be run in a development environment by pointing the local Tableau installation directly to the top-level directory of this repository. On MacOS:
 
 ```
-/Applications/Tableau\ Desktop\ 2020.1.app/Contents/MacOS/Tableau -DConnectPluginsPath=/Users/alexb/Projects/omnisci-tableau-connector/
+/Applications/Tableau\ Desktop\ 2020.1.app/Contents/MacOS/Tableau -DConnectPluginsPath=/Users/alexb/Projects/heavydb-tableau-connector/
 ```
 
 (assuming you cloned this repo into a `Projects` directory in your home folder)
@@ -38,11 +40,11 @@ source venv/bin/activate
 python setup.py install
 ```
 
-Generate and sign the taco
+Generate and sign the taco (Note: below needs updating to HEAVY.AI name and key)
 
 ```
 cd connector_packager
-python -m connector_packager.package /path/to/omnisci-tableau-connector/omnisci_jdbc -a 'omnisci, inc.’s sectigo limited id' -ks ~/.keystore
+python -m connector_packager.package /path/to/heavydb-tableau-connector/omnisci_jdbc -a 'omnisci, inc.’s sectigo limited id' -ks ~/.keystore
 ```
 
 By default the taco will be placed at `packaged-connector/omnisci_jdbc.taco`
@@ -59,6 +61,6 @@ Install Tableau.
 
 Install a Java distribution, current recommended by Tableau is Java 8 from https://adoptopenjdk.net/ .
 
-Acquire `omnisci-jdbc-x.y.z.jar` from the `bin` directory of an OmniSci distribution and place it in the Tableau Drivers dir. On macOS this is under `~/Library/Tableau/Drivers`, on Windows it is `c:\Program Files\Tableau\Drivers`.
+Acquire `heavyai-jdbc-x.y.z.jar` from the `bin` directory of a HEAVY.AI distribution and place it in the Tableau Drivers dir. On macOS this is under `~/Library/Tableau/Drivers`, on Windows it is `c:\Program Files\Tableau\Drivers`.
 
 Copy the generated `omnisci_jdbc.taco` to the Tableau Repository Connectors dir. On macOS this is under `~/Documents/My Tableau Repository/Connectors`, on Windows it is `%HOMEPATH%\Documents\My Tableau Repository\Connectors`.
