@@ -1,12 +1,11 @@
-<?xml version='1.0' encoding='utf-8' ?>
-
-<connector-plugin class='omnisci_jdbc' superclass='jdbc' plugin-version='0.0.0' name='OmniSci JDBC' version='5.1.0' min-version-tableau='2019.4'>
+<?xml version='1.0' encoding='utf-8'?>
+<connector-plugin class="heavyai_jdbc" superclass="jdbc" plugin-version="0.0.1" name="HEAVY.AI JDBC" version="7.2.1" min-version-tableau="2019.4">
   <vendor-information>
-      <company name="OmniSci"/>
-      <support-link url="https://www.omnisci.com"/>
-      <driver-download-link url="https://www.omnisci.com/platform/downloads"/>
+      <company name="HEAVY.AI"/>
+      <support-link url="https://www.heavy.ai"/>
+      <driver-download-link url="https://support.heavy.ai/hc/en-us/categories/11410301533719-Downloads"/>
   </vendor-information>
-  <connection-customization class="omnisci_jdbc" enabled="true" version="5.1.0">
+  <connection-customization class="heavyai_jdbc" enabled="true" version="6.0.0">
     <vendor name="vendor"/>
     <driver name="driver"/>
     <customizations>
@@ -31,7 +30,7 @@
       <customization name="CAP_QUERY_TIME_REQUIRES_CAST" value="yes"/>
     </customizations>
   </connection-customization>
-  <connection-dialog file='connection-dialog.tcd'/>
+  <connection-dialog file="connection-dialog.tcd"/>
   <connection-resolver file="connectionResolver.tdr"/>
-  <dialect file='dialect.tdd'/>
+  <dialect file="dialect.tdd"/>
 </connector-plugin>
