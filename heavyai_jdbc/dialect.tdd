@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<dialect name='OmniSci'
-         class='omnisci_jdbc'
+<dialect name='HEAVY.AI'
+         class='heavyai_jdbc'
          base='DefaultSQLDialect'
          version='18.1'>
    <function-map>
@@ -200,6 +200,298 @@
       <argument type='real' />
       <argument type='real' />
     </function>
+    <function group='string' name='CONTAINS' return-type='bool'>
+      <formula>(%1 LIKE (SELECT '%'||%2||'%'))</formula>
+      <argument type='str' />
+      <argument type='str' />
+    </function>
+    <function group='string' name='STARTSWITH' return-type='bool'>
+      <formula>(%1 LIKE (SELECT %2||'%'))</formula>
+      <argument type='str' />
+      <argument type='str' />
+    </function>
+    <function group='string' name='ENDSWITH' return-type='bool'>
+      <formula>(%1 LIKE (SELECT '%'||%2))</formula>
+      <argument type='str' />
+      <argument type='str' />
+    </function>
+    <function group='string' name='FILTER_CONTAINS' return-type='bool'>
+      <formula>(UPPER(%1) LIKE (SELECT '%'||UPPER(%2)||'%'))</formula>
+      <argument type='str' />
+      <argument type='str' />
+    </function>
+    <function group='string' name='FILTER_STARTSWITH' return-type='bool'>
+      <formula>(UPPER(%1) LIKE (SELECT UPPER(%2)||'%'))</formula>
+      <argument type='str' />
+      <argument type='str' />
+    </function>
+    <function group='string' name='FILTER_ENDSWITH' return-type='bool'>
+      <formula>(UPPER(%1) LIKE (SELECT '%'||UPPER(%2)))</formula>
+      <argument type='str' />
+      <argument type='str' />
+    </function>
+    <function group='string' name='FIND' return-type='int'>
+      <formula>(POSITION(%2 in %1))</formula>
+      <argument type='str' />
+      <argument type='str' />
+    </function>
+    <function group='string' name='FIND' return-type='int'>
+      <formula>(POSITION(%2 in %1 FROM CAST(%3 as INTEGER)))</formula>
+      <argument type='str' />
+      <argument type='str' />
+      <argument type='int' />
+    </function>
+    <function group='string' name='FIND' return-type='int'>
+      <formula>(POSITION(%2 in %1 FROM CAST(%3 as INTEGER)))</formula>
+      <argument type='str' />
+      <argument type='str' />
+      <argument type='real' />
+    </function>
+    <function group='string' name='LEN' return-type='int'>
+      <formula>(LENGTH(%1))</formula>
+      <argument type='str' />
+    </function>
+    <function group='string' name='LOWER' return-type='str'>
+      <formula>(LOWER(%1))</formula>
+      <argument type='str' />
+    </function>
+    <function group='string' name='UPPER' return-type='str'>
+      <formula>(UPPER(%1))</formula>
+      <argument type='str' />
+    </function>
+    <function group='string' name='PROPER' return-type='str'>
+      <formula>(INITCAP(%1))</formula>
+      <argument type='str' />
+    </function>
+    <function group='string' name='REPEAT' return-type='str'>
+      <formula>(REPEAT(%1,CAST(%2 as INTEGER)))</formula>
+      <argument type='str' />
+      <argument type='real' />
+    </function>
+    <function group='string' name='SPACE' return-type='str'>
+      <formula>(REPEAT(&apos; &apos;,CAST(%1 as INTEGER)))</formula>
+      <argument type='real' />
+    </function>
+    <function group='string' name='SPLIT' return-type='str'>
+      <formula>(SPLIT_PART(%1,%2,CAST(%3 AS INTEGER)))</formula>
+      <argument type='str' />
+      <argument type='str' />
+      <argument type='real' />
+    </function>
+    <function group='string' name='REPLACE' return-type='str'>
+      <formula>(REPLACE(%1,%2,%3))</formula>
+      <argument type='str' />
+      <argument type='str' />
+      <argument type='str' />
+    </function>  
+    <function group='string' name='LEFT' return-type='str'>
+      <formula>(SUBSTRING(%1,1,CAST(%2 AS INTEGER)))</formula>
+      <argument type='str' />
+      <argument type='real' />
+    </function>
+    <function group='string' name='LEFT' return-type='str'>
+      <formula>(SUBSTRING(%1,1,%2))</formula>
+      <argument type='str' />
+      <argument type='int' />
+    </function>
+    <function group='string' name='RIGHT' return-type='str'>
+      <formula>(SUBSTRING(%1,CAST(-%2 AS INTEGER)))</formula>
+      <argument type='str' />
+      <argument type='real' />
+    </function>
+    <function group='string' name='RIGHT' return-type='str'>
+      <formula>(SUBSTRING(%1,-%2))</formula>
+      <argument type='str' />
+      <argument type='int' />
+    </function>
+    <function group='string' name='MID' return-type='str'>
+      <formula>(SUBSTRING(%1,CAST(%2 AS INTEGER)))</formula>
+      <argument type='str' />
+      <argument type='int' />
+    </function>
+    <function group='string' name='MID' return-type='str'>
+      <formula>(SUBSTRING(%1,CAST(%2 AS INTEGER)))</formula>
+      <argument type='str' />
+      <argument type='real' />
+    </function>
+    <function group='string' name='MID' return-type='str'>
+      <formula>(SUBSTRING(%1,CAST(%2 AS INTEGER),CAST(%3 AS INTEGER)))</formula>
+      <argument type='str' />
+      <argument type='real' />
+      <argument type='real' />
+    </function>
+    <function group='string' name='MID' return-type='str'>
+      <formula>(SUBSTRING(%1,CAST(%2 AS INTEGER),CAST(%3 AS INTEGER)))</formula>
+      <argument type='str' />
+      <argument type='int' />
+      <argument type='real' />
+    </function>
+    <function group='string' name='MID' return-type='str'>
+      <formula>(SUBSTRING(%1,CAST(%2 AS INTEGER),CAST(%3 AS INTEGER)))</formula>
+      <argument type='str' />
+      <argument type='real' />
+      <argument type='int' />
+    </function>
+    <function group='string' name='MID' return-type='str'>
+      <formula>(SUBSTRING(%1,CAST(%2 AS INTEGER),CAST(%3 AS INTEGER)))</formula>
+      <argument type='str' />
+      <argument type='int' />
+      <argument type='int' />
+    </function>
+    <function group='string' name='TRIM' return-type='str'>
+      <formula>(TRIM(%1))</formula>
+      <argument type='str' />
+    </function>
+    <function group='string' name='LTRIM' return-type='str'>
+      <formula>(LTRIM(%1))</formula>
+      <argument type='str' />
+    </function>
+    <function group='string' name='RTRIM' return-type='str'>
+      <formula>(RTRIM(%1))</formula>
+      <argument type='str' />
+    </function>
+    <function group='string' name='MIN' return-type='str'>
+      <formula>(CASE WHEN %1 IS NULL OR %2 IS NULL THEN CAST(NULL AS TEXT) WHEN %1 &lt; %2 THEN %1 ELSE %2 END)</formula>
+      <argument type='str' />
+      <argument type='str' />
+    </function>
+    <function group='string' name='MAX' return-type='str'>
+      <formula>(CASE WHEN %1 IS NULL OR %2 IS NULL THEN CAST(NULL AS TEXT) WHEN %1 &gt; %2 THEN %1 ELSE %2 END)</formula>
+      <argument type='str' />
+      <argument type='str' />
+    </function>
+    <function group='string' name='REGEXP_MATCH' return-type='bool'>
+      <formula>(CASE WHEN %1 IS NULL THEN false ELSE %1 REGEXP %2 END)</formula>
+      <argument type='str' />
+      <argument type='str' />
+    </function>
+    <function group='string' name='KEY_FOR_STRING' return-type='int'>
+      <formula>(KEY_FPR_STRING(%1))</formula>
+      <argument type='str' />
+    </function>
+    <function group='string' name='JSON_VALUE' return-type='str'>
+      <formula>(JSON_VALUE(%1,%2))</formula>
+      <argument type='str' />
+      <argument type='str' />
+    </function>
+    <function group='string' name='GET_JSON_OBJECT' return-type='str'>
+      <formula>(JSON_VALUE(%1,%2))</formula>
+      <argument type='str' />
+      <argument type='str' />
+    </function>
+    <function group='string' name='URL_ENCODE' return-type='str'>
+      <formula>(URL_ENCODE(%1))</formula>
+      <argument type='str' />
+    </function>
+    <function group='string' name='URL_DECODE' return-type='str'>
+      <formula>(URL_DECODE(%1))</formula>
+      <argument type='str' />
+    </function>
+    <function group='string' name='BASE64_ENCODE' return-type='str'>
+      <formula>(BASE64_ENCODE(%1))</formula>
+      <argument type='str' />
+    </function>
+    <function group='string' name='BASE64_DECODE' return-type='str'>
+      <formula>(BASE64_DECODE(%1))</formula>
+      <argument type='str' />
+    </function>
+    <function group='string' name='ENCODE_TEXT' return-type='int'>
+      <formula>(ENCODE_TEXT(%1))</formula>
+      <argument type='str' />
+    </function>
+    <function group='string' name='HASH' return-type='int'>
+      <formula>(HASH(%1))</formula>
+      <argument type='str' />
+    </function>
+    <function group='string' name='JAROWINKLER_SIMILARITY' return-type='int'>
+      <formula>(JAROWINKLER_SIMILARITY(%1,%2))</formula>
+      <argument type='str' />
+      <argument type='str' />
+    </function>
+    <!--function group='string' name='REGEXP_MATCH' return-type='bool'>
+      <formula>(CASE WHEN %1 IS NULL THEN 0 WHEN REGEXP_COUNT(%1,%2,%3) &gt; 0 THEN TRUE END)</formula>
+      <argument type='str' />
+      <argument type='str' />
+      <argument type='int' />
+    </function>
+    <function group='string' name='REGEXP_MATCH' return-type='bool'>
+      <formula>(CASE WHEN %1 IS NULL THEN 0 WHEN REGEXP_COUNT(%1,%2,%3,%4) &gt; 0 THEN TRUE END)</formula>
+      <argument type='str' />
+      <argument type='str' />
+      <argument type='int' />
+      <argument type='localstr' />
+    </function>
+    <function group='string' name='REGEXP_EXTRACT' return-type='str'>
+      <formula>(REGEXP_EXTRACT(%1,%2))</formula>
+      <argument type='str' />
+      <argument type='str' />
+    </function>
+    <function group='string' name='REGEXP_EXTRACT' return-type='str'>
+      <formula>(REGEXP_EXTRACT(%1,%2,0,%3))</formula>
+      <argument type='str' />
+      <argument type='str' />
+      <argument type='localstr' />
+    </function>
+    <function group='string' name='REGEXP_EXTRACT_NTH' return-type='str'>
+      <formula>(REGEXP_EXTRACT(%1,%2,%3))</formula>
+      <argument type='str' />
+      <argument type='str' />
+      <argument type='int' />
+    </function>
+    <function group='string' name='REGEXP_EXTRACT_NTH' return-type='str'>
+      <formula>(REGEXP_EXTRACT(%1,%2,%3,%4))</formula>
+      <argument type='str' />
+      <argument type='str' />
+      <argument type='int' />
+      <argument type='localstr' />
+    </function>
+    <function group='string' name='REGEXP_REPLACE' return-type='str'>
+      <formula>(REGEXP_REPLACE(%1,%2))</formula>
+      <argument type='str' />
+      <argument type='str' />
+    </function>
+    <function group='string' name='REGEXP_REPLACE' return-type='str'>
+      <formula>(REGEXP_REPLACE(%1,%2,%3))</formula>
+      <argument type='str' />
+      <argument type='str' />
+      <argument type='str' />
+    </function>
+    <function group='string' name='REGEXP_REPLACE' return-type='str'>
+      <formula>(REGEXP_REPLACE(%1,%2,%3,$4))</formula>
+      <argument type='str' />
+      <argument type='str' />
+      <argument type='str' />
+      <argument type='int' />
+    </function>
+    <function group='string' name='REGEXP_REPLACE' return-type='str'>
+      <formula>(REGEXP_REPLACE(%1,%2,%3,%4,%5))</formula>
+      <argument type='str' />
+      <argument type='str' />
+      <argument type='str' />
+      <argument type='int' />
+      <argument type='int' />
+    </function>
+    <function group='string' name='REGEXP_REPLACE' return-type='str'>
+      <formula>(REGEXP_REPLACE(%1,%2,%3,%5,%6))</formula>
+      <argument type='str' />
+      <argument type='str' />
+      <argument type='str' />
+      <argument type='int' />
+      <argument type='int' />
+      <argument type='localstr' />
+    </function>
+    <function group='string' name='REPLACE' return-type='str'>
+      <formula>(REPLACE(%1,%2,%3))</formula>
+      <argument type='str' />
+      <argument type='str' />
+      <argument type='str' />
+    </function>
+    <function group='string' name='REPLACE' return-type='str'>
+      <formula>(REPLACE(%1,%2,%3))</formula>
+      <argument type='str' />
+      <argument type='str' />
+      <argument type='str' />
+    </function-->
     <date-function name='DATEADD' return-type='datetime'>
       <formula>DATEADD(%1,%2,%3)</formula>
       <formula part='year'>DATEADD(&apos;year&apos;,%2,%3)</formula>
@@ -354,8 +646,24 @@
       <argument type='localstr' />
       <argument type='date' />
     </date-function>
+    <remove-function name='FINDNTH'>
+      <argument type='str' />
+      <argument type='str' />
+      <argument type='real' />
+    </remove-function>
+    <remove-function name='MIN'>
+      <argument type='str' />
+    </remove-function>
+    <remove-function name='MAX'>
+      <argument type='str' />
+    </remove-function>
+    <remove-function name='ASCII'>
+      <argument type='str' />
+    </remove-function>
+    <remove-function name='CHAR'>
+      <argument type='int' />
+    </remove-function>
    </function-map>
-
    <sql-format>
     <!--
       format-select
@@ -376,6 +684,7 @@
     <supported-joins>
       <part name='Inner' />
       <part name='Left' />
+      <part name='Cross' />
     </supported-joins>
    </sql-format>
 </dialect>
