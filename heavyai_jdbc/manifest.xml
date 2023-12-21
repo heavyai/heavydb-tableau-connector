@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<connector-plugin class="heavyai_jdbc" superclass="jdbc" plugin-version="0.0.1" name="HEAVY.AI JDBC" version="7.2.1" min-version-tableau="2019.4">
+<connector-plugin class="heavyai_jdbc" superclass="jdbc" plugin-version="7.2.1" name="HEAVY.AI JDBC" version="7.2.1" min-version-tableau="2019.4">
   <vendor-information>
       <company name="HEAVY.AI"/>
       <support-link url="https://www.heavy.ai"/>
