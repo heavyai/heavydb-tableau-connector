@@ -1,10 +1,15 @@
 # HeavyDB Tableau Connector
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://github.com/heavyai/heavydb-tableau-connector/blob/master/LICENSE.txt)
+[![Security](https://img.shields.io/badge/Security-Report%20a%20Vulnerability-red.svg)](https://github.com/heavyai/heavydb-tableau-connector/blob/master/SECURITY.md)
+[![GitHub Discussions](https://img.shields.io/badge/GitHub-Discussions-blue?logo=github)](https://github.com/orgs/heavyai/discussions)
+
+
 
 ### Prerequisites
 
-Install the HEAVY.AI JDBC driver in Tableau. The JDBC driver is packaged with the HEAVY.AI binaries in the `bin` directory of the HEAVY.AI package. See [Installing JDBC Drivers in Tableau](https://help.tableau.com/current/pro/desktop/en-us/examples_otherdatabases_jdbc.htm) for full instructions.
+Install the HeavyAI JDBC driver in Tableau. The JDBC driver is packaged with the HeavyAI binaries in the `bin` directory of the HeavyAI package. See [Installing JDBC Drivers in Tableau](https://help.tableau.com/current/pro/desktop/en-us/examples_otherdatabases_jdbc.htm) for full instructions.
 
-(Below needs updating for new HEAVY.AI naming scheme)
+(Below needs updating for new HeavyAI naming scheme)
 
 On MacOS:
 
@@ -14,7 +19,7 @@ Copy the `.jar` file to `~/Library/Tableau/Drivers`:
 cp heavyai-jdbc-6.0.0-SNAPSHOT.jar ~/Library/Tableau/Drivers
 ```
 
-(from the `bin` directory of your HEAVY.AI package)
+(from the `bin` directory of your HeavyAI package)
 
 ### Running in the Development Environment
 
@@ -40,7 +45,7 @@ source venv/bin/activate
 python setup.py install
 ```
 
-Generate and sign the taco (Note: below needs updating to HEAVY.AI name and key)
+Generate and sign the taco (Note: below needs updating to HeavyAI name and key)
 
 ```
 cd connector_packager
@@ -61,6 +66,19 @@ Install Tableau.
 
 Install a Java distribution, current recommended by Tableau is Java 8 from https://adoptopenjdk.net/ .
 
-Acquire `heavyai-jdbc-x.y.z.jar` from the `bin` directory of a HEAVY.AI distribution and place it in the Tableau Drivers dir. On macOS this is under `~/Library/Tableau/Drivers`, on Windows it is `c:\Program Files\Tableau\Drivers`.
+Acquire `heavyai-jdbc-x.y.z.jar` from the `bin` directory of a HeavyAI distribution and place it in the Tableau Drivers dir. On macOS this is under `~/Library/Tableau/Drivers`, on Windows it is `c:\Program Files\Tableau\Drivers`.
 
 Copy the generated `omnisci_jdbc.taco` to the Tableau Repository Connectors dir. On macOS this is under `~/Documents/My Tableau Repository/Connectors`, on Windows it is `%HOMEPATH%\Documents\My Tableau Repository\Connectors`.
+
+
+## Security
+> [!WARNING]
+> **Do not report security vulnerabilities through public GitHub issues!**
+
+NVIDIA takes security seriously. If you discover a vulnerability in heavydb-tableau-connector, **DO NOT open a public issue**. Use one of the private reporting channels described in [SECURITY.md](https://github.com/heavyai/heavydb-tableau-connector/blob/master/SECURITY.md).
+
+## Support
+Join the [HeavyAI GitHub Discussions](https://github.com/orgs/heavyai/discussions) to ask questions, share feedback, and report issues. HeavyAI maintainers review issues, discussions, and pull requests on a best effort basis without guaranteed response timelines.
+  
+## License
+Apache 2.0. See [LICENSE](https://github.com/heavyai/heavydb-tableau-connector/blob/master/LICENSE.txt).
